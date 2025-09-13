@@ -15,9 +15,10 @@ jobs:
           export PATH=${PATH}:${HOME}/.codon/bin
       - name: Check out repository code
         uses: actions/checkout@v5
-      - uses: actions/setup-python@v6
+      - name: Setup Python Interpreter
+        uses: actions/setup-python@v6
         with:
-          python-version: '3.13'
+          python-version: '3.13' 
       - name: Set up Codon Python bridge
         run: |
           export CODON_PYTHON=$(curl -L https://raw.githubusercontent.com/exaloop/codon/refs/heads/develop/test/python/find-python-library.py | python)
